@@ -1,0 +1,58 @@
+#partners-slider .logo-item {
+    height: 80px!important;
+}
+
+.process-wrapp li {
+    width: 200px!important;
+}
+.team-content {
+    background: #fff;
+    height: 150px!important;
+}
+.single_post .post>img {
+    -webkit-border-radius: 0% !important;
+    border-radius: 0% !important;
+}
+.single_post .text {
+    vertical-align: top;
+}
+.whitecolor {
+    color: #000000 !important;
+}
+.process-wrapp li>.pro-step {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+}
+.process-wrapp li::before, .process-wrapp li::after {
+    background: #212529 !important;
+}
+.process-wrapp li>.pro-step::before {
+    background: linear-gradient(90deg, #6bbe46, #236c22) !important;
+}
+.testimonial-wrapp .quoted {
+    background-image: linear-gradient(to right, #51e184 0%, #23ced5 51%, #4376b4 100%) !important;
+    color: #000 !important;
+    font-size: 17px!important;
+}
+.testimonial-wrapp .testimonial-text::before {
+    background-image: linear-gradient(to right, #6bbe46 0%, #236c22 51%, #10233a 100%) !important;
+}
+.gallery-hvr {
+    background: radial-gradient(rgb(74 225 113), rgb(107 190 70) 50%) !important;
+}
+.navbar-nav .nav-link{
+    font-family: 'Aubrey', cursive;
+}
+.navbar-nav .nav-link:hover, .navbar .dropdown:hover .dropdown-toggle, .dropdown-menu .dropdown-item:hover,
+.dropdown-menu.megamenu .dropdown-item:hover {
+    color: #fff !important;
+}
+.team-content::before {
+    background-image: linear-gradient(to right, #6bbe46 0%, #25972e 51%, #5192e1 100%);
+}
+.navbar-brand>img {
+    width: 60% !important;
+}
+.gradient-bg {
+    background-image: linear-gradient(to right, #23ced5 0%, #5192e1 51%, #5192e1 100%) !important;
+}

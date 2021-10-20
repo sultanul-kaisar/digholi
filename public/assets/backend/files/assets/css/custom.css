@@ -1,0 +1,19 @@
+
+.note-editor .note-toolbar, .note-popover .popover-content {
+    background-color: #cccccc24!important;
+}
+/*.pcoded-header[header-theme="themelight1"] {*/
+/*    background: #EBEBE3!important;*/
+/*}*/
+/*.pcoded .pcoded-navbar[navbar-theme="theme1"] .nav-user, .pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-inner-navbar {*/
+/*    background-color: #6bbe46!important;*/
+/*}*/
+.navbar-logo[logo-theme="theme6"] {
+    background: #EBEBE3!important;
+}
+.pcoded .pcoded-header[header-theme="themelight1"] .navbar-logo a {
+    color: #0c0c0c;
+}
+.img-fluid {
+    max-width: 21%!important;
+}
