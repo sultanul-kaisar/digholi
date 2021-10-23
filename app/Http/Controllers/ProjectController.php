@@ -33,7 +33,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
 
-        return view('backend.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -44,7 +44,7 @@ class ProjectController extends Controller
     public function create()
     {
         $categories = ProjectCategory::where('status', 'active')->get();
-        return view('backend.projects.create', compact('categories'));
+        return view('admin.projects.create', compact('categories'));
     }
 
     /**
@@ -137,7 +137,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $categories = ProjectCategory::where('status', 'active')->get();
-        return view('backend.projects.edit', compact('categories', 'project'));
+        return view('admin.projects.edit', compact('categories', 'project'));
     }
 
     /**

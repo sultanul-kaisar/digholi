@@ -29,7 +29,7 @@ class PermissionController extends Controller
     public function index()
     {
         $pages = Page::all();
-        return view('backend.permissions.index', compact('pages'));
+        return view('admin.permissions.index', compact('pages'));
     }
 
     /**
@@ -39,7 +39,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('backend.permissions.create');
+        return view('admin.permissions.create');
     }
 
     /**

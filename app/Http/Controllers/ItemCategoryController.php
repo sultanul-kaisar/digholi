@@ -31,7 +31,7 @@ class ItemCategoryController extends Controller
     {
         $itemCategories = ItemCategory::all();
 
-        return view('backend.item-categories.index', compact('itemCategories'));
+        return view('admin.item-categories.index', compact('itemCategories'));
     }
 
     /**
@@ -42,7 +42,7 @@ class ItemCategoryController extends Controller
     public function create()
     {
         $categories = ItemCategory::where('status', 'active')->get();
-        return view('backend.item-categories.create', compact('categories'));
+        return view('admin.item-categories.create', compact('categories'));
     }
 
     /**
@@ -130,7 +130,7 @@ class ItemCategoryController extends Controller
     public function edit(ItemCategory $itemCategory)
     {
         $categories = ItemCategory::where('status', 'active')->get();
-        return view('backend.item-categories.edit', compact('categories', 'itemCategory'));
+        return view('admin.item-categories.edit', compact('categories', 'itemCategory'));
     }
 
     /**

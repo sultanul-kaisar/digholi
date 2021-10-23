@@ -30,7 +30,7 @@ class CommentController extends Controller
     {
         $comments = Comment::all();
 
-        return view('backend.comments.index', compact('comments'));
+        return view('admin.comments.index', compact('comments'));
     }
 
     /**
@@ -91,7 +91,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        return view('backend.comments.edit', compact('comment'));
+        return view('admin.comments.edit', compact('comment'));
     }
 
     /**

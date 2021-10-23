@@ -21,7 +21,7 @@ class BackendController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        return view('backend.auth.login');
+        return view('admin.auth.login');
     }
 
     public function logout(Request $request)
@@ -38,7 +38,7 @@ class BackendController extends Controller
         $blogs      = Blog::all();
         $galleries  = Gallery::all();
         $clients    = Client::all();
-        return view('backend.dashboard', compact('projects', 'blogs', 'galleries', 'clients'));
+        return view('admin.dashboard', compact('projects', 'blogs', 'galleries', 'clients'));
     }
 
 }

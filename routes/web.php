@@ -66,15 +66,15 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('dashboard', 'Backend\BackendController@dashboard')->name('admin.dashboard');
 
         Route::get('form', function () {
-            return view('backend.form');
+            return view('admin.form');
         })->name('form');
 
         Route::get('table', function () {
-            return view('backend.table');
+            return view('admin.table');
         })->name('table');
 
         Route::get('report-table', function () {
-            return view('backend.report-table');
+            return view('admin.report-table');
         })->name('report-table');
 
         //BLOG CATEGORIES

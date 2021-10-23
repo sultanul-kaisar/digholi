@@ -27,7 +27,7 @@ class ContactController extends Controller
     public function index()
     {
         $mails = Contact::all()->sortByDesc('id');
-        return view('backend.contacts.index', compact('mails'));
+        return view('admin.contacts.index', compact('mails'));
     }
 
     /**
@@ -59,7 +59,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        return view('backend.contacts.show', compact('contact'));
+        return view('admin.contacts.show', compact('contact'));
     }
 
     /**

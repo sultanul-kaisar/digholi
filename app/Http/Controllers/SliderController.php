@@ -30,7 +30,7 @@ class SliderController extends Controller
     {
         $sliders = Slider::all();
 
-        return view('backend.sliders.index', compact('sliders'));
+        return view('admin.sliders.index', compact('sliders'));
     }
 
     /**
@@ -40,7 +40,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.sliders.create');
+        return view('admin.sliders.create');
     }
 
     /**
@@ -107,7 +107,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        return view('backend.sliders.edit', compact('slider'));
+        return view('admin.sliders.edit', compact('slider'));
     }
 
     /**

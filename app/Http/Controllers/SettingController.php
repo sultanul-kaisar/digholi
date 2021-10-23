@@ -29,7 +29,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('backend.settings.setting');
+        return view('admin.settings.setting');
     }
 
     /**
@@ -173,7 +173,7 @@ class SettingController extends Controller
                 $updatedData['value'] = $imagename;
                 $getData->update($updatedData);
 
-                $path = public_path('storage/uploads/settings/backend/');
+                $path = public_path('storage/uploads/settings/admin/');
 
                 if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);
@@ -205,7 +205,7 @@ class SettingController extends Controller
      */
     public function seo()
     {
-        return view('backend.settings.seo');
+        return view('admin.settings.seo');
     }
 
     /**
@@ -270,7 +270,7 @@ class SettingController extends Controller
                 $updatedData['value'] = $imagename;
                 $getData->update($updatedData);
 
-                $path = public_path('storage/uploads/settings/backend/');
+                $path = public_path('storage/uploads/settings/admin/');
 
                 if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);

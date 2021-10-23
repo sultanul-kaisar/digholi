@@ -32,7 +32,7 @@ class TestimonialController extends Controller
     {
         $testimonials = Testimonial::all();
 
-        return view('backend.testimonials.index', compact('testimonials'));
+        return view('admin.testimonials.index', compact('testimonials'));
     }
 
     /**
@@ -42,7 +42,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('backend.testimonials.create');
+        return view('admin.testimonials.create');
     }
 
     /**
@@ -105,7 +105,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        return view('backend.testimonials.edit', compact('testimonial'));
+        return view('admin.testimonials.edit', compact('testimonial'));
     }
 
     /**

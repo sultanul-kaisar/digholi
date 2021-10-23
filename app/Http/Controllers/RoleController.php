@@ -33,7 +33,7 @@ class RoleController extends Controller
         $roles = Role::with('permissions')
             ->where('name', '!=', 'developer')
             ->get();
-        return view('backend.roles.index', compact('roles'));
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -44,7 +44,7 @@ class RoleController extends Controller
     public function create()
     {
         $pages = Page::All();
-        return view('backend.roles.create', compact('pages'));
+        return view('admin.roles.create', compact('pages'));
     }
 
     /**
@@ -106,7 +106,7 @@ class RoleController extends Controller
                 return redirect()->route('role.index')->with('errorMessage', 'Self role modification restricted!');
             }
         }
-        return view('backend.roles.edit', compact('pages','role'));
+        return view('admin.roles.edit', compact('pages','role'));
     }
 
     /**

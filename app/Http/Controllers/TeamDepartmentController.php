@@ -32,7 +32,7 @@ class TeamDepartmentController extends Controller
     {
         $teamDepartments = TeamDepartment::all();
 
-        return view('backend.team-departments.index', compact('teamDepartments'));
+        return view('admin.team-departments.index', compact('teamDepartments'));
     }
 
     /**
@@ -42,7 +42,7 @@ class TeamDepartmentController extends Controller
      */
     public function create()
     {
-        return view('backend.team-departments.create');
+        return view('admin.team-departments.create');
     }
 
     /**
@@ -127,7 +127,7 @@ class TeamDepartmentController extends Controller
      */
     public function edit(TeamDepartment $teamDepartment)
     {
-        return view('backend.team-departments.edit', compact('teamDepartment'));
+        return view('admin.team-departments.edit', compact('teamDepartment'));
     }
 
     /**

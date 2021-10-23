@@ -34,7 +34,7 @@ class GalleryCategoryController extends Controller
     {
         $galleryCategories = GalleryCategory::all();
 
-        return view('backend.gallery-categories.index', compact('galleryCategories'));
+        return view('admin.gallery-categories.index', compact('galleryCategories'));
     }
 
     /**
@@ -45,7 +45,7 @@ class GalleryCategoryController extends Controller
     public function create()
     {
         $categories = GalleryCategory::where('status', 'active')->get();
-        return view('backend.gallery-categories.create', compact('categories'));
+        return view('admin.gallery-categories.create', compact('categories'));
     }
 
     /**
@@ -133,7 +133,7 @@ class GalleryCategoryController extends Controller
     public function edit(GalleryCategory $galleryCategory)
     {
         $categories = GalleryCategory::where('status', 'active')->get();
-        return view('backend.gallery-categories.edit', compact('categories', 'galleryCategory'));
+        return view('admin.gallery-categories.edit', compact('categories', 'galleryCategory'));
     }
 
     /**

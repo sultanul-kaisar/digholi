@@ -33,7 +33,7 @@ class TeamController extends Controller
     {
         $teams = Team::all();
 
-        return view('backend.teams.index', compact('teams'));
+        return view('admin.teams.index', compact('teams'));
     }
 
     /**
@@ -44,7 +44,7 @@ class TeamController extends Controller
     public function create()
     {
         $departments = TeamDepartment::where('status', 'active')->get();
-        return view('backend.teams.create', compact('departments'));
+        return view('admin.teams.create', compact('departments'));
     }
 
     /**
@@ -132,7 +132,7 @@ class TeamController extends Controller
     public function edit(Team $team)
     {
         $departments = TeamDepartment::where('status', 'active')->get();
-        return view('backend.teams.edit', compact('departments', 'team'));
+        return view('admin.teams.edit', compact('departments', 'team'));
     }
 
     /**

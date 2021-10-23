@@ -38,7 +38,7 @@ class UserController extends Controller
                 ->notRole(['developer', 'super admin'])->get();
         }
 
-        return view('backend.users.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -56,7 +56,7 @@ class UserController extends Controller
                 ->where('name', '!=', 'super admin')
                 ->get();
         }
-        return view('backend.users.create', compact('roles'));
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -153,7 +153,7 @@ class UserController extends Controller
                 ->get();
         }
 
-        return view('backend.users.edit', compact('roles', 'user'));
+        return view('admin.users.edit', compact('roles', 'user'));
     }
 
     /**

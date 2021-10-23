@@ -32,7 +32,7 @@ class BlogCategoryController extends Controller
     {
         $blogCategories = BlogCategory::all();
 
-        return view('backend.blog-categories.index', compact('blogCategories'));
+        return view('admin.blog-categories.index', compact('blogCategories'));
     }
 
     /**
@@ -43,7 +43,7 @@ class BlogCategoryController extends Controller
     public function create()
     {
         $categories = BlogCategory::where('status', 'active')->get();
-        return view('backend.blog-categories.create', compact('categories'));
+        return view('admin.blog-categories.create', compact('categories'));
     }
 
     /**
@@ -131,7 +131,7 @@ class BlogCategoryController extends Controller
     public function edit(BlogCategory $blogCategory)
     {
         $categories = BlogCategory::where('status', 'active')->get();
-        return view('backend.blog-categories.edit', compact('categories', 'blogCategory'));
+        return view('admin.blog-categories.edit', compact('categories', 'blogCategory'));
     }
 
     /**
