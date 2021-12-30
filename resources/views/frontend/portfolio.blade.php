@@ -65,10 +65,10 @@
                         @if(!$projects->count())
                             <!--Item 1-->
                             <div class="cbp-item brand graphics">
-                                <img src="{{asset('assets/frontend/images/gallery-1.png')}}" alt="">
+                                <img src="{{asset('public/assets/frontend/images/gallery-1.png')}}" alt="">
                                 <div class="gallery-hvr whitecolor">
                                     <div class="center-box">
-                                        <a href="{{asset('assets/frontend/images/gallery-1.png')}}" class="opens" data-fancybox="gallery" title="Zoom In"> <i class="fa fa-search-plus"></i></a>
+                                        <a href="{{asset('public/assets/frontend/images/gallery-1.png')}}" class="opens" data-fancybox="gallery" title="Zoom In"> <i class="fa fa-search-plus"></i></a>
                                         <a href="#" class="opens" title="View Details"> <i class="fas fa-link"></i></a>
                                         <h4 class="w-100">Rainy Outdoor</h4>
                                     </div>
@@ -77,10 +77,10 @@
                         @else
                             @foreach($projects as $project)
                                     <div class="cbp-item brand {{$project->project_category->slug}} p-2">
-                                        <img src="{{ asset('storage/uploads/projects/'.$project->image) }}" alt="{{$project->title}}">
+                                        <img src="{{ asset('public/storage/uploads/projects/'.$project->image) }}" alt="{{$project->title}}">
                                         <div class="gallery-hvr whitecolor">
                                             <div class="center-box">
-                                                <a href="{{ asset('storage/uploads/projects/'.$project->image) }}" class="opens" data-fancybox="gallery" title="Zoom In"> <i class="fa fa-search-plus"></i></a>
+                                                <a href="{{ asset('public/storage/uploads/projects/'.$project->image) }}" class="opens" data-fancybox="gallery" title="Zoom In"> <i class="fa fa-search-plus"></i></a>
                                                 <a href="{{route('portfolio_view',$project->slug)}}" class="opens" title="View Details"> <i class="fas fa-link"></i></a>
                                                 <h4 class="w-100">{{$project->title}}</h4>
                                             </div>

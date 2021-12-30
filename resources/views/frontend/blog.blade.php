@@ -34,35 +34,38 @@
     <!-- Our Blogs -->
     <section id="our-blog" class="bglight padding">
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12">
                     <div id="mosaic-filter" class="cbp-l-filters bottom30 wow fadeIn text-center" data-wow-delay="350ms">
                         <div data-filter="*" class="cbp-filter-item">
                             <span>All</span>
                         </div>
-                        @if(!$blog_categories->count())
+                        {{-- @if(!$blog_categories->count())
                             <div data-filter=".digital" class="cbp-filter-item">
                                 <span>Digital</span>
                             </div>
-                        @else
-                            @foreach($blog_categories as $blog_category)
+                        @else --}}
+                            {{-- @foreach($blog_categories as $blog_category)
                                 <div data-filter=".{{$blog_category->slug}}" class="cbp-filter-item">
                                     <span>{{$blog_category->title}}</span>
                                 </div>
-                            @endforeach
-                        @endif
-                    </div>
+                            @endforeach --}}
+                        {{-- @endif --}}
+                    {{-- </div>
                 </div>
-            </div>
-            <div id="grid-mosaic" class="cbp cbp-l-grid-mosaic-flat">
+            </div> --}}
+            <div class="cbp-item">
+                <div class="news_item shadow text-center text-md-start">
                 @if(!$blogs->count())
                 @else
                     @foreach($blogs as $blog)
                         <div class="cbp-item brand {{$blog->blog_category->slug}} p-2">
-                            <div class="news_item shadow text-center text-md-left">
-                                <a class="image" href="{{route('blog_view',$blog->slug)}}">
-                                    <img src="{{ asset('storage/uploads/blogs/'.$blog->image) }}" alt="Latest News" class="img-responsive">
-                                </a>
+                            <div class="news_item shadow wow fadeInUp" data-wow-delay="200ms">
+                                <div class="blog-img">
+                                    <a class="image" href="{{route('blog_view',$blog->slug)}}">
+                                        <img src="{{ asset('public/storage/uploads/blogs/'.$blog->image) }}" alt="Latest News" class="img-responsive">
+                                    </a>
+                                </div>
                                 <div class="news_desc">
                                     <h3 class="text-capitalize font-normal darkcolor"><a href="{{route('blog_view',$blog->slug)}}">{{ $blog->title }}</a></h3>
                                     <ul class="meta-tags top20 bottom20">
@@ -71,12 +74,13 @@
                                         <li><a href="#."><i class="far fa-comment-dots"></i>{{ $blog->comments->count() }}</a></li>
                                     </ul>
                                     <p class="bottom35">{!! substr($blog->description, 0, 300) !!}</p>
-                                    <a href="{{route('blog_view',$blog->slug)}}" class="button gradient-btn">Read more</a>
+                                    <a href="{{route('blog_view',$blog->slug)}}" class="button gradient-btn">Read More</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 @endif
+                </div>
             </div>
         </div>
     </section>

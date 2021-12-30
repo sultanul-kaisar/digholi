@@ -71,7 +71,7 @@
                     <div class="app-image top30">
                         <div class="app-slider"></div>
                         <div class="app-slider-lock">
-{{--                            <img src="{{asset('assets/frontend/images/services.png')}}" alt="">--}}
+{{--                            <img src="{{asset('public/assets/frontend/images/services.png')}}" alt="">--}}
                         </div>
                         <div id="app-slider" class="owl-carousel owl-theme owl-loaded owl-drag">
 
@@ -92,7 +92,7 @@
                                         </div></div><div class="owl-item cloned" style="width: 235px;"><div class="item">
 {{--                                            <img src="{{asset('assets/frontend/images/iphone-slide2.jpg')}}" alt="">--}}
                                         </div></div></div></div><div class="owl-nav disabled"></div><div class="owl-dots disabled"></div></div>
-                        <img src="{{asset('assets/frontend/images/services.png')}}" height="400px" alt="image">
+                        <img src="{{asset('public/assets/frontend/images/services.png')}}" height="400px" alt="image">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">

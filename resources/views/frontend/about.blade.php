@@ -24,7 +24,7 @@
 @section('twitter_url', isset($seo->site_url) ? $seo->site_url : '')
 @section('twitter_title', isset($seo->site_title) ? $seo->site_title : '')
 @section('twitter_description', isset($seo->site_description) ? $seo->site_description : '')
-@section('twitter_image', isset($seo->site_image) ? url("storage/uploads/seo/".$seo->site_image) : '')
+@section('twitter_image', isset($seo->site_image) ? url("public/storage/uploads/seo/".$seo->site_image) : '')
 @section('title', 'About Us')
 
 @section('content')

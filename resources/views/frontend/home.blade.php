@@ -13,7 +13,7 @@
                         <li data-index="rs-{{$slider->id}}" data-transition="fade" data-slotamount="default" data-easein="Power100.easeIn" data-easeout="Power100.easeOut" data-masterspeed="2000" data-fsmasterspeed="1500" data-param1="{{$slider->id}}">
                             <!-- MAIN IMAGE -->
                             <div class="overlay overlay-dark opacity-5"></div>
-                            <img src="{{ asset('public/storage/uploads/sliders/'.$slider->image) }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <img src="{{ asset('public/storage/uploads/coverphotos/sliders/'.$slider->image) }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 
                         @if($slider->align == 'left')
                             <!-- LAYER NR. 1 -->

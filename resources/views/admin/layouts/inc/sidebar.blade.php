@@ -208,14 +208,70 @@
                     </li>
                 @endif
 
-                @if(auth()->user()->can('master') || auth()->user()->can('global') || auth()->user()->can('slider view') || auth()->user()->can('slider create') || auth()->user()->can('slider edit') || auth()->user()->can('slider delete'))
-                    <li class=" ">
-                        <a href="{{route('slider.index')}}" class="nav-link {{ (request()->is('admin/slider*')) ? 'active' : ''}}" class="waves-effect waves-dark">
-        									<span class="pcoded-micon">
-        										<i class="fa fa-slideshare"></i>
-        									</span>
-                            <span class="pcoded-mtext">Slider</span>
+                @if(auth()->user()->can('master') || auth()->user()->can('global') || auth()->user()->can('coverphoto view') || auth()->user()->can('coverphoto create') || auth()->user()->can('coverphoto edit') || auth()->user()->can('coverphoto delete'))
+                    <li class="pcoded-hasmenu">
+                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon">
+                                                    <i class="fa fa-file-image-o"></i>
+                                                </span>
+                            <span class="pcoded-mtext">Coverphotos</span>
                         </a>
+                        <ul class="pcoded-submenu">
+
+                            <li class=" ">
+                                <a href="{{route('index.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/index') || request()->is('admin/index/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Index</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('slider.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/slider') || request()->is('admin/slider/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Sliders</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('about.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/about-photo') || request()->is('admin/about-photo/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">About</span>
+                                </a>
+                            </li>
+
+  {{--                          <li class=" ">
+                                <a href="{{route('team-photo.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/team-photo') || request()->is('admin/team-photo/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Team</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('service-photo.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/service-photo') || request()->is('admin/service-photo/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Service</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('portfolio.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/portfolio') || request()->is('admin/portfolio/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Portfolio</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('gallery-photo.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/gallery-photo') || request()->is('admin/gallery-photo/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Gallery</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('blog-photo.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/blog-photo') || request()->is('admin/blog-photo/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Blog</span>
+                                </a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{route('contact-photo.index')}}" class="waves-effect waves-dark  {{ (request()->is('admin/contact-photo') || request()->is('admin/contact-photo/*')) ? 'active' : ''}}">
+                                    <span class="pcoded-mtext">Contact</span>
+                                </a>
+                            </li> --}}
+                        </ul>
                     </li>
                 @endif
 
@@ -265,6 +321,11 @@
                                     <span class="pcoded-mtext">Settings</span>
                                 </a>
                                 <ul class="pcoded-submenu" >
+                                    {{-- <li class="">
+                                        <a href="{{ route('admin.system.coverphoto') }}" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Cover Photos</span>
+                                        </a>
+                                    </li> --}}
                                     <li class="">
                                         <a href="{{ route('admin.system.settings') }}" class="waves-effect waves-dark">
                                             <span class="pcoded-mtext">General Settings</span>

@@ -81,8 +81,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::resource('blog', 'BlogController')->except(['show']);
         Route::resource('blog-category', 'BlogCategoryController')->except(['show']);
 
-        //SLIDERS
-        Route::resource('slider', 'SliderController')->except(['show']);
+
 
         //COMMENTS
         Route::resource('comment', 'CommentController')->except(['show']);
@@ -122,6 +121,12 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('system/seo', 'SettingController@seo')->name('admin.system.seo');
         Route::post('system/seo/save', 'SettingController@seoStore')->name('admin.system.seo.store');
         Route::post('system/og-image/save', 'SettingController@ogImage')->name('admin.seo.og.image');
+
+        //COVER-PHOTOS UPDATES
+        Route::resource('slider', 'SliderController')->except(['show']);
+        Route::resource('index', 'IndexPhotoController')->except(['show']);
+        Route::resource('about', 'AboutPhotoController')->except(['show']);
+
 
 
         //USERS, ROLES & PERMISSION

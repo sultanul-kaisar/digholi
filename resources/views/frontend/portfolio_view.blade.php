@@ -36,13 +36,16 @@
             <div class="row">
                 <div class="col-lg-8 col-md-7">
                     <div class="news_item shadow">
-                        <iframe width="728" height="371"
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="{{$project->url }}" title="{{ $project->title }}" allowfullscreen></iframe>
+                        </div>
+                        <!-- <iframe width="728" height="371"
                                 src="{{$project->url }}"
                                 title="{{ $project->title }}"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
-                        </iframe>
+                        </iframe> -->
                         <div class="news_desc text-center text-md-left mb-lg-4">
                             <h3 class="text-capitalize font-normal darkcolor"><a >{{$project->title}}</a></h3>
 
@@ -57,8 +60,8 @@
                         </div>
                         <div class="news_item shadow">
                             <div class="image">
-                                <a href="{{ asset('storage/uploads/projects/'.$project->image) }}" data-fancybox="gallery" title="img-responsive">
-                                    <img src="{{ asset('storage/uploads/projects/'.$project->image) }}" class="img-fluid" alt="Latest News">
+                                <a href="{{ asset('public/storage/uploads/projects/'.$project->image) }}" data-fancybox="gallery" title="img-responsive">
+                                    <img src="{{ asset('public/storage/uploads/projects/'.$project->image) }}" class="img-fluid" alt="Latest News">
                                 </a>
                             </div>
                         </div>
@@ -67,6 +70,4 @@
             </div>
         </div>
     </section>
-    <!--Our Blog Ends-->
-
 @endsection

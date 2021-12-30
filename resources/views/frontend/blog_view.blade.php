@@ -37,8 +37,8 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="news_item shadow">
                         <div class="image">
-                            <a href="{{ asset('storage/uploads/blogs/'.$blog->image) }}" data-fancybox="gallery" title="img-responsive">
-                                <img src="{{ asset('storage/uploads/blogs/'.$blog->image) }}" class="img-fluid" alt="Latest News">
+                            <a href="{{ asset('public/storage/uploads/blogs/'.$blog->image) }}" data-fancybox="gallery" title="img-responsive">
+                                <img src="{{ asset('public/storage/uploads/blogs/'.$blog->image) }}" class="img-fluid" alt="Latest News">
                             </a>
                         </div>
                         <div class="news_desc text-center text-md-left">
@@ -105,7 +105,7 @@
                                 @if($recent_blog->id  == $blog->id)
                                 @else
                                     <div class="single_post d-table bottom15">
-                                        <a href="{{route('blog_view',$recent_blog->slug)}}" class="post"><img src="{{ asset('storage/uploads/blogs/'.$recent_blog->image) }}" alt="post image"></a>
+                                        <a href="{{route('blog_view',$recent_blog->slug)}}" class="post"><img src="{{ asset('public/storage/uploads/blogs/'.$recent_blog->image) }}" alt="post image"></a>
                                         <div class="text">
                                             <a href="{{route('blog_view',$recent_blog->slug)}}">{{ $recent_blog->title }}</a>
                                             <span>{{ date('d M, Y', strtotime($recent_blog->created_at)) }}</span>

@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Slider;
-use Illuminate\Http\Request;
+use App\CoverPhoto\IndexPhoto;
+use App\IndexPhoto as AppIndexPhoto;
 use Image;
-use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Str;
 use File;
-class SliderController extends Controller
+
+class IndexPhotoController extends Controller
 {
-    /**
+     /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware(['role_or_permission:developer|super admin|master|global|slider view'], ['only' => ['index', 'show']]);
-        $this->middleware(['role_or_permission:developer|super admin|master|global|slider create'], ['only' => ['create', 'store']]);
-        $this->middleware(['role_or_permission:developer|super admin|master|global|slider edit'],   ['only' => ['edit', 'update']]);
-        $this->middleware(['role_or_permission:developer|super admin|master|global|slider delete'], ['only' => ['destroy']]);
+        $this->middleware(['role_or_permission:developer|super admin|master|global|index view'], ['only' => ['index', 'show']]);
+        $this->middleware(['role_or_permission:developer|super admin|master|global|index create'], ['only' => ['create', 'store']]);
+        $this->middleware(['role_or_permission:developer|super admin|master|global|index edit'],   ['only' => ['edit', 'update']]);
+        $this->middleware(['role_or_permission:developer|super admin|master|global|index delete'], ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -28,9 +30,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $indexes = IndexPhoto::all();
 
-        return view('admin.coverphotos.sliders.index', compact('sliders'));
+        return view('admin.coverphotos.indexes.index', compact('indexes'));
     }
 
     /**
@@ -40,7 +42,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('admin.coverphotos.sliders.create');
+        return view('admin.coverphotos.indexes.create');
     }
 
     /**
@@ -55,12 +57,12 @@ class SliderController extends Controller
         {
             $validatedData = $request->validate([
                 'title'        => '',
-                'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:3072'
+                'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:12072'
             ]);
         }else{
             $validatedData = $request->validate([
                 'title'        => '',
-                'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:3072'
+                'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:12072'
             ]);
         }
         $imagename =  str_shuffle(Str::random(6)).str_shuffle(Str::random(6)).'-'.date('dmy').'.'.$request->file('image')->extension();
@@ -70,9 +72,9 @@ class SliderController extends Controller
         $validatedData['image'] = $imagename;
 
         try {
-            $slider = new Slider();
-            $slider->create($validatedData);
-            $path = public_path('storage/uploads/coverphotos/sliders/');
+            $index = new IndexPhoto();
+            $index->create($validatedData);
+            $path = public_path('storage/uploads/coverphotos/indexes/');
 
             if(!File::isDirectory($path)){
                 File::makeDirectory($path, 0777, true, true);
@@ -80,21 +82,21 @@ class SliderController extends Controller
 
             $image->save($path.$imagename);
 
-            return redirect()->route('slider.index')->with('successMessage', 'Slider successfully created!');
+            return redirect()->route('index.index')->with('successMessage', 'Index Photo successfully created!');
 
         } catch (\Exception $ex) {
             \Artisan::call('cache:clear');
-            return redirect()->route('slider.index')->with('errorMessage', $ex->getMessage());
+            return redirect()->route('index.index')->with('errorMessage', $ex->getMessage());
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Slider  $slider
+     * @param  \App\IndexPhoto  $indexPhoto
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(IndexPhoto $indexPhoto)
     {
         //
     }
@@ -102,61 +104,57 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Slider  $slider
+     * @param  \App\IndexPhoto  $indexPhoto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(IndexPhoto $indexPhoto)
     {
-        return view('admin.coverphotos.sliders.edit', compact('slider'));
+        return view('admin.coverphotos.indexes.edit', compact('index'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Slider  $slider
+     * @param  \App\IndexPhoto  $indexPhoto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, IndexPhoto $indexPhoto)
     {
         if(!$request->has('image')){
             if(!is_null($request->url))
             {
                 $validatedData = $request->validate([
-                    'align'        => 'required',
                     'status'       => 'required',
                     'title'        => ''
                 ]);
             }else{
                 $validatedData = $request->validate([
-                    'align'        => 'required',
                     'status'       => 'required',
                     'title'        => ''
                 ]);
             }
 
             try {
-                $slider->update($validatedData);
-                return redirect()->route('slider.edit', $slider->id)->with('successMessage', 'Slider successfully updated!');
+                $index->update($validatedData);
+                return redirect()->route('index.edit', $index->id)->with('successMessage', 'Index Photo successfully updated!');
             } catch (\Exception $ex) {
                 \Artisan::call('cache:clear');
-                return redirect()->route('slider.index')->with('errorMessage', $ex->getMessage());
+                return redirect()->route('index.index')->with('errorMessage', $ex->getMessage());
             }
         }else{
             if(!is_null($request->url))
             {
                 $validatedData = $request->validate([
-                    'align'        => 'required',
                     'status'       => 'required',
                     'title'        => '',
-                    'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:3072'
+                    'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:12072'
                 ]);
             }else{
                 $validatedData = $request->validate([
-                    'align'        => 'required',
                     'status'       => 'required',
                     'title'        => '',
-                    'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:3072'
+                    'image'        => 'required|image|mimes:jpeg,jpg,png,gif|max:12072'
                 ]);
             }
 
@@ -167,9 +165,9 @@ class SliderController extends Controller
             $validatedData['image'] = $imagename;
 
             try {
-                $oldImage = $slider->image;
-                $slider->update($validatedData);
-                $path = public_path('storage/uploads/coverphotos/sliders/');
+                $oldImage = $index->image;
+                $index->update($validatedData);
+                $path = public_path('storage/uploads/coverphotos/indexes/');
 
                 if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);
@@ -184,11 +182,11 @@ class SliderController extends Controller
 
                 $image->save($path.$imagename);
 
-                return redirect()->route('slider.edit', $slider->id)->with('successMessage', 'Slider successfully updated!');
+                return redirect()->route('index.edit', $index->id)->with('successMessage', 'Index Photo successfully updated!');
 
             } catch (\Exception $ex) {
                 \Artisan::call('cache:clear');
-                return redirect()->route('slider.index')->with('errorMessage', $ex->getMessage());
+                return redirect()->route('index.index')->with('errorMessage', $ex->getMessage());
             }
         }
     }
@@ -196,16 +194,16 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Slider  $slider
+     * @param  \App\IndexPhoto  $indexPhoto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(IndexPhoto $indexPhoto)
     {
-        $oldImage = $slider->image;
+        $oldImage = $index->image;
 
-        if($slider->delete())
+        if($index->delete())
         {
-            $path = public_path('storage/uploads/coverphotos/sliders/');
+            $path = public_path('storage/uploads/coverphotos/indexes/');
             if($oldImage != 'default.jpg')
             {
                 if (is_file($path.$oldImage)) {
@@ -213,7 +211,7 @@ class SliderController extends Controller
                 }
             }
 
-            return redirect()->route('slider.index')->with('successMessage', 'Slider successfully deleted!');
+            return redirect()->route('index.index')->with('successMessage', 'Index Photo successfully deleted!');
         }
     }
 }

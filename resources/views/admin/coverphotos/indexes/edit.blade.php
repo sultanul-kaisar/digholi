@@ -4,7 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endpush
 
-@section('title','Slider ' .$slider->id)
+@section('title','index ' .$index->id)
 
 @section('content')
     <div class="page-header card" style="margin-top: 0px;margin-bottom: -11px;">
@@ -15,8 +15,8 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i> Dashboard</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!"></a>Sliders</li>
-                        <span class="breadcrumb-item active">Slider {{ $slider->id }}</span>
+                        <li class="breadcrumb-item"><a href="#"></a>Index Photo</li>
+                        <span class="breadcrumb-item active">Index Photo {{ $index->id }}</span>
                     </ul>
                 </div>
             </div>
@@ -31,35 +31,23 @@
                         <div class="col-md-12 col-xl-12">
                             <div class="card sale-card" style="min-height:550px!important;">
                                 <div class="card-header">
-                                    <h4>Slider {{ $slider->id }}</h4>
+                                    <h4>index Photo {{ $index->id }}</h4>
                                     <div class="card-header-right col-md-9">
-                                        <a type="button" href="{{ route('slider.index') }}" class="btn btn-round waves-effect waves-light btn-primary btn-outline-primary float-right ml-2"><i class="ti-angle-double-left"></i> Back</a>
+                                        <a type="button" href="{{ route('index.index') }}" class="btn btn-round waves-effect waves-light btn-primary btn-outline-primary float-right ml-2"><i class="ti-angle-double-left"></i> Back</a>
                                         <a href="#" class="btn btn-round waves-effect waves-light btn-primary btn-outline-primary float-md-right" onclick="event.preventDefault();document.getElementById('submit-form').submit();"><i class="ti-save "></i>Update</a>
 
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" id="submit-form" action="{{ route('slider.update', $slider->id)}}" enctype="multipart/form-data">
+                                    <form method="POST" id="submit-form" action="{{ route('index.update', $index->id)}}" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Text Align ( <span class="text-danger">*</span> )</label>
-                                            <div class="col-lg-10">
-                                                <select name="align" class="form-control select-search @error('align') is-invalid @enderror">
-                                                    <option value="left" {{ (old('align', $slider->align) == 'left' ) ? 'selected=selected':''}}>Left</option>
-                                                    <option value="right" {{ (old('align', $slider->align) == 'right' ) ? 'selected=selected':''}}>Right</option>
-                                                </select>
-                                                @error('align')
-                                                <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Active Status ( <span class="text-danger">*</span> )</label>
                                             <div class="col-lg-10">
                                                 <select name="status" class="form-control select-search @error('status') is-invalid @enderror">
-                                                    <option value="active" {{ (old('status', $slider->status) == 'active' ) ? 'selected=selected':''}}>Enabled</option>
-                                                    <option value="inactive" {{ (old('status', $slider->status) == 'inactive' ) ? 'selected=selected':''}}>Disabled</option>
+                                                    <option value="active" {{ (old('status', $index->status) == 'active' ) ? 'selected=selected':''}}>Enabled</option>
+                                                    <option value="inactive" {{ (old('status', $index->status) == 'inactive' ) ? 'selected=selected':''}}>Disabled</option>
                                                 </select>
                                                 @error('status')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -69,7 +57,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <textarea id="summernote" name="title" class="form-control" cols="30" rows="10" placeholder="Title">{{ old('title', $slider->title) }}</textarea>
+                                                <textarea id="summernote" name="title" class="form-control" cols="30" rows="10" placeholder="Title">{{ old('title', $index->title) }}</textarea>
                                             </div>
                                         </div>
 
@@ -82,10 +70,10 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        @if(!is_null($slider->image))
+                                        @if(!is_null($index->image))
                                             <div class="row mb-3">
                                                 <div class="col-9 offset-2">
-                                                    <img src="{{ asset('storage/uploads/sliders/'. $slider->image) }}" class="img-fluid" style="width:20%;">
+                                                    <img src="{{ asset('public/storage/uploads/coverphotos/indexes/'. $index->image) }}" class="img-fluid" style="width:20%;">
                                                 </div>
                                             </div>
                                         @endif
